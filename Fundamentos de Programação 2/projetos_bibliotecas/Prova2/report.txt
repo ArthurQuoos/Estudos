@@ -1,0 +1,6 @@
+
+Tabela Final
+PAIS 	| UP | DOWN | RATE |
+qwe                  | 00 | 00 | 0.00 |
+qwe                  | 00 | 00 | 0.00 |
+qwe                  | 00 | 1993167168 | 0.00 |

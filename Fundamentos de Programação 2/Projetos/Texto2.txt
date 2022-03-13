@@ -1,0 +1,10 @@
+Nome do 1 atleta: jao
+A pontuacao do 1 atleta: 10
+Nome do 2 atleta: pedro
+A pontuacao do 2 atleta: 20
+Nome do 3 atleta: cand
+A pontuacao do 3 atleta: 50
+Nome do 4 atleta: alex
+A pontuacao do 4 atleta: 30
+Nome do 5 atleta: vinicius
+A pontuacao do 5 atleta: 5
