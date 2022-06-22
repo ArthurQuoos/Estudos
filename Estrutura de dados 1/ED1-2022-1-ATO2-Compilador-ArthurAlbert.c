@@ -33,8 +33,8 @@ int x = 0; //controlador de variaveis temp
 int tam; //tamanho da pilha
 int y = 0; //variavel de controle para saber quando salvar o temp
 
-entrada = fopen(argv[0],"r");
-saida = fopen(argv[1],"w");
+entrada = fopen(argv[1],"r");
+saida = fopen(argv[2],"w");
 if (entrada == NULL || saida == NULL){
    printf("Erro na abertura do arquivo\n");
    exit(1); //finaliza o programa
