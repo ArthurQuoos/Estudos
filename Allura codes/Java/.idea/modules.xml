@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Consumindo APIs/Consumindo APIs.iml" filepath="$PROJECT_DIR$/Consumindo APIs/Consumindo APIs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java.iml" filepath="$PROJECT_DIR$/.idea/Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Listas e colecoes de dados/Listas e colecoes de dados.iml" filepath="$PROJECT_DIR$/Listas e colecoes de dados/Listas e colecoes de dados.iml" />
+      <module fileurl="file://$PROJECT_DIR$/POO alura/POO alura.iml" filepath="$PROJECT_DIR$/POO alura/POO alura.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Primeira atividade/Primeira atividade.iml" filepath="$PROJECT_DIR$/Primeira atividade/Primeira atividade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Projeto Final Consumindo API VIACEP/Projeto Final Consumindo API VIACEP.iml" filepath="$PROJECT_DIR$/Projeto Final Consumindo API VIACEP/Projeto Final Consumindo API VIACEP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Projeto Final De POO CebolaMusic/Projeto Final De POO CebolaMusic.iml" filepath="$PROJECT_DIR$/Projeto Final De POO CebolaMusic/Projeto Final De POO CebolaMusic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Projeto Final Listas e Colecoes de Dados/Projeto Final Listas e Colecoes de Dados.iml" filepath="$PROJECT_DIR$/Projeto Final Listas e Colecoes de Dados/Projeto Final Listas e Colecoes de Dados.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Projeto final do curso de FPJ/Projeto final do curso de FPJ.iml" filepath="$PROJECT_DIR$/Projeto final do curso de FPJ/Projeto final do curso de FPJ.iml" />
+    </modules>
+  </component>
+</project>

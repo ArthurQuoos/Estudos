@@ -1,0 +1,32 @@
+Abreviações do Emmet para html
+
+html: Gera a estrutura básica de um documento HTML.
+
+ul>li*5: Cria uma lista não ordenada com cinco itens de lista.
+
+div>h1+p: Cria uma div contendo um cabeçalho (h1) seguido de um parágrafo (p).
+
+input[type=text]+input[type=password]: Cria dois campos de entrada, 
+um para texto e outro para senha.
+
+
+
+<!DOCTYPE html>
+<html>   
+    <head>
+        <title>Nome da pagina</title>
+    </head>
+    <body>
+        <h1>Este é o titulo de verdade</h1>
+        <h2>Este é um subtitulo</h2>
+        <p>Aqui fica o paragrafo né...</p>
+        <img src="nome da imagem.png" alt="deu ruim nao carregou">
+        <ul>
+            <li>Característica 1</li>
+            <li>Característica 2</li>
+            <li>Característica 3</li>
+        </ul>
+    </body>
+</html> 
+
+!

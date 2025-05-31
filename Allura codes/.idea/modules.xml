@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Allura codes.iml" filepath="$PROJECT_DIR$/.idea/Allura codes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/POO alura/POO alura.iml" filepath="$PROJECT_DIR$/Java/POO alura/POO alura.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/Primeira atividade/Primeira atividade.iml" filepath="$PROJECT_DIR$/Java/Primeira atividade/Primeira atividade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/Projeto Final De POO CebolaMusic/Projeto Final De POO CebolaMusic.iml" filepath="$PROJECT_DIR$/Java/Projeto Final De POO CebolaMusic/Projeto Final De POO CebolaMusic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java/Projeto final do curso de FPJ/Projeto final do curso de FPJ.iml" filepath="$PROJECT_DIR$/Java/Projeto final do curso de FPJ/Projeto final do curso de FPJ.iml" />
+    </modules>
+  </component>
+</project>

@@ -18,6 +18,7 @@ public class Main {
                 4 - Sair
                 """);
             op = teclado.nextInt();
+
             switch (op) {
                 case 1:
                     System.out.println(String.format("Seu Saldo atual e de: R$%.2f", saldo));
