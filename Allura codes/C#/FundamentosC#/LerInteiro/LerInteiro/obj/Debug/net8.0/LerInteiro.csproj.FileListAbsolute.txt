@@ -1,0 +1,15 @@
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\bin\Debug\net8.0\LerInteiro.exe
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\bin\Debug\net8.0\LerInteiro.deps.json
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\bin\Debug\net8.0\LerInteiro.runtimeconfig.json
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\bin\Debug\net8.0\LerInteiro.dll
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\bin\Debug\net8.0\LerInteiro.pdb
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\LerInteiro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\LerInteiro.AssemblyInfoInputs.cache
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\LerInteiro.AssemblyInfo.cs
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\LerInteiro.csproj.CoreCompileInputs.cache
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\LerInteiro.sourcelink.json
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\LerInteiro.dll
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\refint\LerInteiro.dll
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\LerInteiro.pdb
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\LerInteiro.genruntimeconfig.cache
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\ref\LerInteiro.dll

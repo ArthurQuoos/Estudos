@@ -1,0 +1,5 @@
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\EntradasUteis.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\EntradasUteis.AssemblyInfoInputs.cache
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\EntradasUteis.AssemblyInfo.cs
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\EntradasUteis.csproj.CoreCompileInputs.cache
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\LerInteiro\LerInteiro\obj\Debug\net8.0\EntradasUteis.sourcelink.json
