@@ -1,0 +1,15 @@
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\bin\Debug\net8.0\Praticas.exe
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\bin\Debug\net8.0\Praticas.deps.json
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\bin\Debug\net8.0\Praticas.runtimeconfig.json
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\bin\Debug\net8.0\Praticas.dll
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\bin\Debug\net8.0\Praticas.pdb
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\obj\Debug\net8.0\Praticas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\obj\Debug\net8.0\Praticas.AssemblyInfoInputs.cache
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\obj\Debug\net8.0\Praticas.AssemblyInfo.cs
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\obj\Debug\net8.0\Praticas.csproj.CoreCompileInputs.cache
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\obj\Debug\net8.0\Praticas.sourcelink.json
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\obj\Debug\net8.0\Praticas.dll
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\obj\Debug\net8.0\refint\Praticas.dll
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\obj\Debug\net8.0\Praticas.pdb
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\obj\Debug\net8.0\Praticas.genruntimeconfig.cache
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\Praticas\Praticas\obj\Debug\net8.0\ref\Praticas.dll
