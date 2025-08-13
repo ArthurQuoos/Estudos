@@ -1,0 +1,15 @@
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\obj\Debug\net8.0\JogoDeAdivinhacao.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\obj\Debug\net8.0\JogoDeAdivinhacao.AssemblyInfoInputs.cache
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\obj\Debug\net8.0\JogoDeAdivinhacao.AssemblyInfo.cs
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\obj\Debug\net8.0\JogoDeAdivinhacao.csproj.CoreCompileInputs.cache
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\obj\Debug\net8.0\JogoDeAdivinhacao.sourcelink.json
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\bin\Debug\net8.0\JogoDeAdivinhacao.exe
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\bin\Debug\net8.0\JogoDeAdivinhacao.deps.json
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\bin\Debug\net8.0\JogoDeAdivinhacao.runtimeconfig.json
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\bin\Debug\net8.0\JogoDeAdivinhacao.dll
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\bin\Debug\net8.0\JogoDeAdivinhacao.pdb
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\obj\Debug\net8.0\JogoDeAdivinhacao.dll
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\obj\Debug\net8.0\refint\JogoDeAdivinhacao.dll
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\obj\Debug\net8.0\JogoDeAdivinhacao.pdb
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\obj\Debug\net8.0\JogoDeAdivinhacao.genruntimeconfig.cache
+C:\Users\Arthu\source\repos\Estudos\Allura codes\C#\FundamentosC#\JogoDeAdivinhacao\JogoDeAdivinhacao\obj\Debug\net8.0\ref\JogoDeAdivinhacao.dll
