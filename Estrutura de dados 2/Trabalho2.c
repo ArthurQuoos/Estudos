@@ -126,12 +126,119 @@ void mergeSort(int *v, int inicio, int fim, int x, long long *contador) {
     }
 }
 
+void criaHeap(int *v, int inicio, int fim, int x,int *contador){
+    int aux = v[inicio];
+    int filho = 2*inicio + 1;
 
+    if(x==1){ // 1 para decrescente (min-heap)
+        while(filho <= fim){
+            if(filho < fim){
+                if(v[filho] > v[filho + 1]){ // menor filho
+                    filho = filho + 1;
+                }
+            }
+            if(aux > v[filho]){ // min-heap: pai maior que filho
+                v[inicio] = v[filho];
+                inicio = filho;
+                filho = 2*inicio + 1;
+                (*contador)++;
+            }else{
+                break;
+            }
+        }
+        v[inicio] = aux;
+        (*contador)++;
+    }else if(x==0){ // 0 para crescente (max-heap)
+        while(filho <= fim){
+            if(filho < fim){
+                if(v[filho] < v[filho + 1]){ // maior filho
+                    filho = filho + 1;
+                }
+            }
+            if(aux < v[filho]){ // max-heap: pai menor que filho
+                v[inicio] = v[filho];
+                inicio = filho;
+                filho = 2*inicio + 1;
+                (*contador)++;
+            }else{
+                break;
+            }
+        }
+        v[inicio] = aux;
+        (*contador)++;
+    }
+}
+
+void heapSort(int *v, int n,int x){
+    int contador=0;
+    clock_t start = clock();  //variavel start para marcar o inicio do tempo
+    int i, aux;
+    for(i = (n-1)/2; i >= 0; i--){
+        criaHeap( v, i, n-1,x,&contador);
+    }
+    for (i = n-1;i >= 1; i--){
+        aux = v[0];
+        v[0] = v[i];
+        v[i] = aux;
+        criaHeap(v, 0, i-1,x,&contador);
+    }
+    clock_t end = clock(); //variavel end para marcar o inicio do tempo
+        printf("Vetor ordenado (heapSort): ");
+    for(int i = 0; i < n; i++){
+        printf("%d ",v[i]);
+    }
+ printf("\nNumero de trocas: %d.\n",contador);
+    printf("Tempo de ordenacao: %lf segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
+}
+
+void selectionSort(int *v, int n,int x){
+    clock_t start = clock();
+    int i, j, min, aux, contador;
+    contador = 0;
+    if(x==0){
+    for(i = 0; i < n-1; i++) {
+        min = i;
+        for(j = i+1; j < n; j++){
+            if(v[j] < v[min]){
+                min = j; //marca apenas o indice do menor
+            }
+        }
+        if(min != i){
+            aux = v[i];
+            v[i] = v[min];
+            v[min] = aux;
+            contador++;
+        }
+    }
+    }else if(x==1){
+        for(i = 0; i < n-1; i++) {
+        min = i;
+        for(j = i+1; j < n; j++){
+            if(v[j] > v[min]){
+                min = j; //marca apenas o indice do menor
+            }
+        }
+        if(min != i){
+            aux = v[i];
+            v[i] = v[min];
+            v[min] = aux;
+            contador++;
+            } 
+        
+        }
+    }
+    clock_t end = clock();
+     printf("Vetor ordenado (selectionSort): ");
+    for(int i = 0; i < n; i++){
+        printf("%d ",v[i]);
+    }
+    printf("\nNumero de alteracoes: %d\n", contador);
+    printf("Tempo de ordenacao: %lf segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\n");
+
+}
 
 int main(){
-    int sorted[] = {1, 25, 3, 30, 41, 27, 17, 4, 2, 4};
-    
-    bubbleSort(sorted,10,1);
 
     srand(time(NULL)); 
     int x[100];
@@ -188,6 +295,27 @@ int main(){
     printf("Tempo de ordenacao: %lf segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
 
 
+    for(int i = 0; i < 100; i++){
+        x[i] = rand() % 1000;
+    }
+    heapSort(x,n,1); //Decrescente
+    printf("\n");
+        for(int i = 0; i < 100; i++){
+        x[i] = rand() % 1000;
+    }
+    heapSort(x,n,0); //ascendente
+    printf("\n");
+
+    for(int i = 0; i < 100; i++){
+        x[i] = rand() % 1000;
+    }
+    selectionSort(x,n,1); //Decrescente
+    printf("\n");
+        for(int i = 0; i < 100; i++){
+        x[i] = rand() % 1000;
+    }
+    selectionSort(x,n,0); //ascendente
+    printf("\n");
 
 
     return 0;
