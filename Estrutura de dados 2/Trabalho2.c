@@ -87,13 +87,15 @@ void insertionSort(int *v, int n, int x) {
     for (int i = 0; i < n; i++) {
         printf("%d ", v[i]);
     }
-
+    
     // imprimir estatísticas
     printf("\nComparacoes: %d\n", comp);
     printf("Trocas: %d\n", trocas);
 
     clock_t end = clock(); // marca o fim
     printf("Tempo de ordenacao: %lf segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
+    printf("\n");
+    
 }
 
 // Merge com contador
@@ -313,42 +315,45 @@ void selectionSort(int *v, int n, int x) {
 
 
 int main(){
-    int crescente[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
-    17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 
-    36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 
-    55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 
-    74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 
-    92, 93, 94, 95, 96, 97, 98, 99, 100};
     
-    int decrescente[] = {100, 99, 98, 97, 96, 95, 94, 93, 92, 91,
-    90, 89, 88, 87, 86, 85, 84, 83, 82, 81,
-    80, 79, 78, 77, 76, 75, 74, 73, 72, 71,
-    70, 69, 68, 67, 66, 65, 64, 63, 62, 61,
-    60, 59, 58, 57, 56, 55, 54, 53, 52, 51,
-    50, 49, 48, 47, 46, 45, 44, 43, 42, 41,
-    40, 39, 38, 37, 36, 35, 34, 33, 32, 31,
-    30, 29, 28, 27, 26, 25, 24, 23, 22, 21,
-    20, 19, 18, 17, 16, 15, 14, 13, 12, 11,
-    10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-
-    int copy[100];
-    srand(time(NULL)); 
-    int x[100];
-    for(int i = 0; i < 100; i++){
-        x[i] = rand() % 1000;
+    
+    int aleatorio[100];
+    int n = sizeof(aleatorio) / sizeof(aleatorio[0]);
+    int copy[n];
+    int crescente[n];
+    int decrescente[n];
+    
+        // Preenche vetor de 100 até 1
+    for (int i = 0; i < n; i++) {
+        decrescente[i] = n - i;  
     }
-    int n = sizeof(x) / sizeof(x[0]);
-    bubbleSort(x,n,0); //ordem aleatoria
+        //preenche vetor de 1 ate 100
+    for(int i = 0;i < n; i++){
+        crescente[i] = i+1;
+        aleatorio[i] = i+1;
+    }
+    srand(time(NULL)); 
+    // Embaralha vetor (Fisher-Yates shuffle)
+    for (int i = n - 1; i > 0; i--) {
+        int j = rand() % (i + 1); // sorteia entre 0 e i
+        // troca aleatorio[i] e aleatorio[j]
+        int temp = aleatorio[i];
+        aleatorio[i] = aleatorio[j];
+        aleatorio[j] = temp;
+    }
+    
+    //BUBBLESORT
+    memcpy(copy, aleatorio, sizeof(aleatorio));
+    bubbleSort(copy,n,0); //ordem aleatoria
     memcpy(copy, crescente, sizeof(crescente));
     bubbleSort(copy,n,0);//vetor crescente
     memcpy(copy,decrescente,sizeof(decrescente));
     bubbleSort(copy,n,0);//ordem decrescente
     printf("\n");
     
-        for(int i = 0; i < 100; i++){
-        x[i] = rand() % 1000;
-    }
-    insertionSort(x,n,0); //ordem aleatoria 
+    //INSERTIONSORT
+    memcpy(copy, aleatorio, sizeof(aleatorio));
+    insertionSort(aleatorio,n,0); //ordem aleatoria 
     memcpy(copy, crescente, sizeof(crescente));
     insertionSort(copy,n,0); //ordem crescente
     memcpy(copy,decrescente,sizeof(decrescente));
@@ -356,18 +361,16 @@ int main(){
     printf("\n");
     
     
-    
-    for(int i = 0; i < 100; i++){
-        x[i] = rand() % 1000;
-    }
+    //MERGESORT ficou complicado por causa da recursao
+    memcpy(copy, aleatorio, sizeof(aleatorio));
     long long trocas = 0;
     long long comp = 0;
     clock_t start = clock();  
-    mergeSort(x,1,n-1,1,&trocas,&comp); //ordem aleatoria
+    mergeSort(copy,1,n-1,1,&trocas,&comp); //ordem aleatoria
     clock_t end = clock(); 
     printf("Vetor ordenado (mergeSort): ");
     for(int i = 0; i < n; i++){
-        printf("%d ",x[i]);
+        printf("%d ",copy[i]);
     }
     printf("\nNumero de comparacoes: %lld\n",comp);
     printf("Numero de alteracoes: %lld\n", trocas);
@@ -401,39 +404,36 @@ int main(){
     printf("\n");
     
     
-
-    for(int i = 0; i < 100; i++){
-        x[i] = rand() % 1000;
-    }
-    heapSort(x,n,0); //Aleatoria
+    //HEAPSORT
+    memcpy(copy, aleatorio, sizeof(aleatorio));
+    heapSort(copy,n,0); //aleatorio
     memcpy(copy, crescente, sizeof(crescente));
     heapSort(copy,n,0);//ascendente
     memcpy(copy, decrescente, sizeof(decrescente));
     heapSort(copy,n,0);//decrescente
-    
-
     printf("\n");
-        for(int i = 0; i < 100; i++){
-        x[i] = rand() % 1000;
-    }
-    selectionSort(x,n,0); //aleatoria
+    
+    
+    //SELECTIONSORT
+    memcpy(copy, aleatorio, sizeof(aleatorio));
+    selectionSort(copy,n,0); //aleatoria
     memcpy(copy, crescente, sizeof(crescente));
     selectionSort(copy,n,0); //ascendente
     memcpy(copy, decrescente, sizeof(decrescente));
     selectionSort(copy,n,0); //Decrescente
     printf("\n");
 
+
+    //QUICKSORT
     int compa = 0;
     int trocaz = 0;
-    for(int i = 0; i < 100; i++){
-        x[i] = rand() % 1000;
-    }
+    memcpy(copy, aleatorio, sizeof(aleatorio));
     start = clock();
-    quickSort(x,0,n-1,&compa, &trocaz); //aleatoria
+    quickSort(copy,0,n-1,&compa, &trocaz); //aleatoria
     end = clock();
         printf("Vetor ordenado (QuickSort):\n");
     for (int i = 0; i < n; i++) {
-        printf("%d ", x[i]);
+        printf("%d ", copy[i]);
     }
     printf("\nComparacoes: %d\n", compa);
     printf("Trocas: %d\n", trocaz);
