@@ -323,16 +323,23 @@ int main(){
     int crescente[n];
     int decrescente[n];
     
+    printf("Vetor Decrescente Original: ");
         // Preenche vetor de 100 até 1
     for (int i = 0; i < n; i++) {
-        decrescente[i] = n - i;  
+        decrescente[i] = n - i; 
+        printf("%d, ",decrescente[i]);
     }
+    printf("\n");
+    printf("Vetor crescente original: ");
         //preenche vetor de 1 ate 100
     for(int i = 0;i < n; i++){
         crescente[i] = i+1;
         aleatorio[i] = i+1;
+        printf(" %d,",crescente[i]);
     }
+    printf("\n");
     srand(time(NULL)); 
+    printf("Vetor Aleatorio Original:");
     // Embaralha vetor (Fisher-Yates shuffle)
     for (int i = n - 1; i > 0; i--) {
         int j = rand() % (i + 1); // sorteia entre 0 e i
@@ -341,6 +348,13 @@ int main(){
         aleatorio[i] = aleatorio[j];
         aleatorio[j] = temp;
     }
+    
+    printf("Vetor Aleatorio Original: ");
+    for(int i = 0; i < n; i++){
+        printf("%d, ",aleatorio[i]);
+    }
+    printf("\n\n\n");
+    
     
     //BUBBLESORT
     memcpy(copy, aleatorio, sizeof(aleatorio));
@@ -353,7 +367,7 @@ int main(){
     
     //INSERTIONSORT
     memcpy(copy, aleatorio, sizeof(aleatorio));
-    insertionSort(aleatorio,n,0); //ordem aleatoria 
+    insertionSort(copy,n,0); //ordem aleatoria 
     memcpy(copy, crescente, sizeof(crescente));
     insertionSort(copy,n,0); //ordem crescente
     memcpy(copy,decrescente,sizeof(decrescente));
@@ -366,7 +380,7 @@ int main(){
     long long trocas = 0;
     long long comp = 0;
     clock_t start = clock();  
-    mergeSort(copy,1,n-1,1,&trocas,&comp); //ordem aleatoria
+    mergeSort(copy,1,n,0,&trocas,&comp); //ordem aleatoria
     clock_t end = clock(); 
     printf("Vetor ordenado (mergeSort): ");
     for(int i = 0; i < n; i++){
@@ -379,7 +393,7 @@ int main(){
      comp = 0;
     memcpy(copy, crescente, sizeof(crescente));
     start = clock();  //variavel start para marcar o inicio do tempo
-    mergeSort(copy,0,n-1,1,&trocas,&comp);
+    mergeSort(copy,0,n,0,&trocas,&comp);
     end = clock(); //variavel end para marcar o inicio do tempo
     printf("Vetor ordenado (mergeSort): ");
     for(int i = 0; i < n; i++){
@@ -392,7 +406,7 @@ int main(){
      comp = 0;
     start = clock();  //variavel start para marcar o inicio do tempo
     memcpy(copy, decrescente, sizeof(decrescente));
-    mergeSort(copy,0,n-1,1,&trocas,&comp);
+    mergeSort(copy,0,n,0,&trocas,&comp);
     end = clock(); //variavel end para marcar o inicio do tempo
     printf("Vetor ordenado (mergeSort): ");
     for(int i = 0; i < n; i++){
@@ -413,7 +427,8 @@ int main(){
     heapSort(copy,n,0);//decrescente
     printf("\n");
     
-    
+
+
     //SELECTIONSORT
     memcpy(copy, aleatorio, sizeof(aleatorio));
     selectionSort(copy,n,0); //aleatoria
@@ -422,6 +437,7 @@ int main(){
     memcpy(copy, decrescente, sizeof(decrescente));
     selectionSort(copy,n,0); //Decrescente
     printf("\n");
+
 
 
     //QUICKSORT
@@ -440,6 +456,8 @@ int main(){
     printf("Tempo de ordenacao: %lf segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
     printf("\n");
     memcpy(copy, crescente, sizeof(crescente));
+    compa = 0;
+    trocaz = 0;
     start = clock();
     quickSort(copy,0,n-1,&compa,&trocaz);
     end = clock();
@@ -452,6 +470,8 @@ int main(){
     printf("Tempo de ordenacao: %lf segundos\n", ((double)(end - start)) / CLOCKS_PER_SEC);
     printf("\n");
     memcpy(copy, decrescente, sizeof(decrescente));
+    compa = 0;
+    trocaz = 0;
     start = clock();
     quickSort(copy,0,n-1,&compa,&trocaz);
     end = clock();
