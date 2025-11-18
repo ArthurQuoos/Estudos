@@ -1,5 +1,11 @@
 
 /*
+3) Explique o que são processos. Qual a diferença entre processos e threads?
+Um processo é um programa em execução.
+Uma thread (ou "linha de execução") é a menor unidade de execução dentro de um processo.
+Um processo pode ter uma ou várias threads, elas compartilham dados entre si, ja os processos não
+
+
 9) O que é condição de corrida? Como Evitar esse "efeito"?
  R: Condição de corrida (race condition) é uma situação em sistemas concorrentes onde o 
  comportamento do sistema depende da ordem ou temporização de eventos não controlados, 
