@@ -1,0 +1,176 @@
+1) A partir das seguintes especificações de memória:
+
+       Endereçamento lógico capaz de suportar  de 16 páginas de tamanho 1K cada.
+       Memória física de 256 frames
+
+              a) Quantos bits tem o endereço lógico desse projeto?
+              14 bits
+              b) Quantos bits tem o endereço físico desta memória?
+              18 bits
+
+2) Explique em detalhes os conceitos de paginação, segmentação, abordando 
+em detalhes as vantagens e desvantagens de cada abordagem. Considerando as 
+suas explicações, explique como paginação segmentada poderia auxiliar para 
+atenuação dos problemas mencionados.
+    R: A paginação é uma técnica de gerenciamento de memória onde o espaço lógico é 
+    dividido em blocos de tamanho fixo chamados páginas e a memória física em molduras 
+    (frames) do mesmo tamanho; uma tabela de páginas faz a tradução do número de 
+    página+offset para o endereço físico, permitindo alocação não contígua e troca 
+    (swapping). Vantagens: elimina fragmentação externa e facilita alocação e swapping. 
+    Desvantagens: pode causar fragmentação interna, exige estruturas de tradução 
+    (tabelas de páginas, TLB) e gera overhead por faltas de página, tambem pode gerar 
+    desperdicio de memória se as páginas não forem totalmente utilizadas. 
+
+    A segmentação divide o espaço lógico em segmentos de tamanho variável 
+    (ex.: código, dados, pilha), refletindo a estrutura do programa e 
+    permitindo proteção e compartilhamento por segmento; porém sofre 
+    fragmentação externa e gerenciamento mais complexo.
+
+    A paginação segmentada combina ambas: cada segmento é dividido em páginas 
+    e cada segmento aponta para sua própria tabela de páginas — ganhando a visão 
+    lógica e proteção da segmentação e a alocação eficiente e ausência de fragmentação 
+    externa da paginação, reduzindo os problemas de ambas as abordagens.
+
+3) Considerando o assunto relacionado a gerenciamento de memória em sistemas operacionais, explique:
+
+    a) O que é memória virtual, e como esse recurso pode ajudar no bom funcionamento e na melhora de desempenho de um sistema operacional;
+        R: Memória virtual é uma técnica que permite que o sistema operacional utilize 
+        espaço em disco rígido para simular memória RAM adicional, permitindo que programas 
+        maiores do que a memória física disponível sejam executados. Isso melhora o desempenho 
+        ao permitir que múltiplos processos sejam carregados na memória simultaneamente, 
+        aumentando a utilização da CPU e evitando que processos fiquem bloqueados esperando por memória física.
+
+     b) Qual é a relação entre memória virtual e paginação? 
+        R: A memória virtual é frequentemente implementada usando paginação, onde o espaço de 
+        endereçamento lógico é dividido em páginas que podem ser mapeadas para quadros de 
+        memória física ou para espaço em disco. Quando uma página não está na memória física, 
+        ocorre uma falta de página, e o sistema operacional carrega a página necessária do 
+        disco para a memória, permitindo que o processo continue sua execução.
+
+4) Considere a seguinte fila de requisições de páginas: 3, 7, 5, 4, 1, 8, 5, 4, 0, 7, 1, 5, 3, 4, 
+8, 7, 5, 2, 8, 3, 7, 5, 4, 4, 1, 5, 8, 3, 6, 4, 9. Simule as requisições 
+mencionadas considerando as políticas, e as configurações de memória a seguir:
+
+       a) FIFO considerando memórias de três, e quatro slots;
+        R: 
+         Memória com 3 slots:
+
+            Total de Page Faults: 27
+            Memória com 4 slots:
+            Total de Page Faults: 23
+            
+       b) LRU considerando memórias de três, e quatro slots;
+        R:
+         Memória com 3 slots:
+            
+            Total de Page Faults:18 
+            Memória com 4 slots:
+            
+            Total de Page Faults: 
+       c) Algoritmo ótimo considerando memórias de três, e quatro slots; 
+        R:
+         Memória com 3 slots:
+ 
+            Total de Page Faults: 12
+            Memória com 4 slots:
+         
+            Total de Page Faults: 10
+Quais foram as taxas de page faults para cada situação? Na sua opinião, qual foi a política que melhor aproveitou  o aumento slots na memória?
+        R: FiFO teve uma redução de 4 page faults ao aumentar de 3 para 4 slots, LRU teve uma redução de 3 page faults, e o Algoritmo Ótimo teve uma redução de 2 page faults. 
+        Considerando apenas a redução de page faults, FiFO parece ter se beneficiado mais do aumento de slots.
+
+
+5) Considerando a estrutura de um sistema de arquivo baseado em inode típico 
+(como o apresentado em aula), explique em detalhes, justificando por meio de contas, 
+qual o tamanho máximo de um arquivo nesse tipo de sistema de arquivos. 
+Considere as entradas (ponteiros para blocos indireto, duplo indireto e 
+triplo indireto) das tabelas de ponteiros de 1KB onde cada ponteiro tem 4 bytes.
+Considere também que cada bloco tenha 1 KB.
+
+i-node
+
+header | 12 ponteiros diretos | 1 ponteiro p tabela indireta| 1 ponteiro p tabela duplo indireta | 1 ponteiro p tabela tripla indireta|
+
+R: Cada ponteiro ocupa 4 bytes.
+Cada bloco de dados tem 1 KB (1024 bytes). 1024/4 = 256 ponteiros por bloco.
+Cada bloco indireto contém 256 ponteiros.
+Uma tabela duplamente indireta contém 256 blocos indiretos → cada um contendo 256 ponteiros.
+Uma tabela triplamente indireta contém 256 blocos duplos → cada um contendo 256 indiretos → cada um contendo 256 ponteiros.
+cada ponteiro direto aponta diretamente para 1 bloco:
+
+12 ponteiros diretos ⇒ 12 × 1KB =12KB
+1 ponteiro para tabela indireta ⇒ 256 × 1KB = 256KB
+1 ponteiro para tabela duplo indireta ⇒ 256 × 256 × 1KB = 65,536KB
+1 ponteiro para tabela triplo indireta ⇒ 256 × 256 × 256 × 1KB = 16,777,216KB
+Tamanho máximo do arquivo = 12KB + 256KB + 65,536KB + 16,777,216KB = 16,843,020KB ≈ 16.04GB
+
+6) Qual o tempo de seek considerando os escalonadores de disco, scan elevator, SSTF, para a seguinte lista de requisições de leitura de bloco:
+
+45,17,200,57,20,18,99,467, 29,12 37
+
+      a) Scan elevator seek time:
+        R: Considerando o braço de leitura inicialmente na posição 53 e movendo-se em direção ao final do disco:
+         Requisições ordenadas: 12,17,18,20,29,37,45,57,99,200,467
+         Movimento do braço: 53 -> 12 -> 17 -> 18 -> 20 -> 29 -> 37 -> 45 -> 57 -> 99 -> 200 -> 467
+                                41    5     1     2     9     8     8     12    42   101     267
+         Distâncias percorridas: 494
+      b)SSTF seek time:
+        R: 53 -> 57 -> 45 -> 37 -> 29 -> 20 -> 18 -> 17 -> 12 -> 99 -> 200 -> 467
+               4    12     8     8     9     2     1     5     87   101     267
+        Distâncias percorridas: 514
+        
+Considere o braço de leitura inicialmente na posição 53
+
+8) Explique o que é E/S programada e sua diferença em relação ao DMA.
+    R: E/S programada é um método de transferência de dados onde a CPU controla diretamente 
+    a transferência entre a memória e o dispositivo de E/S, lendo ou escrevendo dados um byte 
+    ou palavra por vez. A CPU fica ocupada durante toda a operação de E/S, o que pode levar 
+    a ineficiências, especialmente em operações de E/S lentas.
+
+    Em contraste, o DMA (Acesso Direto à Memória) permite que dispositivos de E/S 
+    transfiram dados diretamente para ou da memória sem a intervenção contínua da CPU. 
+    O controlador DMA gerencia a transferência, liberando a CPU para executar outras tarefas 
+    enquanto a operação de E/S está em andamento, melhorando significativamente o desempenho do sistema.
+
+9) Explique o que são "Device Drivers" e como esses abstraem os dispositivos computacionais.
+    R: Device Drivers (ou simplesmente drivers) são programas especializados que fazem a ponte 
+    entre o Sistema Operacional e os dispositivos de hardware, Eles funcionam como tradutores, 
+    permitindo que o SO use comandos genéricos (ex.: “escrever no disco”, “enviar dados pela rede”) 
+
+10) Quais são os atrasos envolvidos na leitura de um bloco de dados nos discos magnéticos.
+    R: Os atrasos envolvidos na leitura de um bloco de dados em discos magnéticos incluem:
+    - Tempo de busca (seek time): tempo necessário para mover o braço de leitura/gravação 
+    para a trilha correta onde o dado está armazenado.
+    - Latência rotacional (rotational latency): tempo que leva para o setor desejado 
+    girar sob o cabeçote de leitura/gravação.
+    - Tempo de transferência (transfer time): tempo necessário para transferir os dados 
+    do disco para a memória após o cabeçote estar na posição correta.
+    - Overhead do controlador de disco: tempo adicional gasto pelo controlador do disco 
+    para processar a solicitação de E/S.
+    - Fila de espera: se houver múltiplas solicitações de E/S, pode haver atrasos adicionais 
+    enquanto as solicitações são enfileiradas e processadas.
+
+11) Dados os métodos de execução de rotinas de E/S a seguir:
+
+   a) E/S programada
+
+   b) Interrupção
+
+   c) DMA
+
+ Atribua a participação da CPU (nula, pouca participação, muita participação) 
+ na execução das rotinas de E/S. Para cada atribuição justifique sua resposta.
+    R:
+    a) E/S programada - Muita participação: A CPU está diretamente envolvida na 
+    transferência de dados, lendo ou escrevendo cada byte ou palavra, o que consome 
+    muitos ciclos de CPU e pode levar a ineficiências.
+
+    b) Interrupção - Pouca participação: A CPU inicia a operação de E/S e depois 
+    continua com outras tarefas. Quando a operação de E/S é concluída, o dispositivo 
+    gera uma interrupção para notificar a CPU, que então processa os dados. Isso reduz 
+    o tempo que a CPU fica ociosa esperando pela conclusão da E/S.
+
+    c) DMA - Nula participação: O controlador DMA gerencia a transferência de dados 
+    entre o dispositivo de E/S e a memória sem intervenção contínua da CPU. A CPU 
+    pode continuar executando outras tarefas enquanto o DMA lida com a E/S, resultando 
+    em uma utilização muito mais eficiente dos recursos do sistema.
