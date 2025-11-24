@@ -78,3 +78,73 @@ int main(int argc, char *argv[])
 
     return 0;
 }
+
+//Corrigido
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+
+/* número de colunas e linhas da matriz */
+#define COLUNAS 5
+#define LINHAS 10
+ 
+int matriz[LINHAS][COLUNAS];
+pthread_t threads[LINHAS];
+int soma_total;
+
+
+/* função executada por cada thread: soma os valores de uma linha */
+void* somarLinha(void* arg)
+{
+    int linha = (long) arg;
+    int j, soma_linha = 0;
+
+    /* soma os valores da linha */
+    for (j = 0; j < COLUNAS; j++)
+        soma_linha += matriz[linha][j];
+
+    printf("A soma da linha %d é %d\n", linha, soma_linha);
+
+    /* aloca espaço para retornar a soma */
+    int* retorno = malloc(sizeof(int));
+    *retorno = soma_linha;
+
+    pthread_exit(retorno);
+}
+
+
+int main()
+{
+    soma_total = 0;
+    int i, j;
+
+    /* inicializa a matriz com valores */
+    for (i = 0; i < LINHAS; i++)
+        for (j = 0; j < COLUNAS; j++)
+            matriz[i][j] = i * COLUNAS + j;
+
+    /* ----------------------------------------- */
+    /* 1. CRIAÇÃO DAS THREADS                    */
+    /* ----------------------------------------- */
+    for (i = 0; i < LINHAS; i++)
+        pthread_create(&threads[i], NULL, somarLinha, (void*)(long)i);
+
+      
+    /* ----------------------------------------- */
+    /* 2. ESPERA DAS THREADS E SOMA DOS RESULTADOS */
+    /* ----------------------------------------- */
+    for (i = 0; i < LINHAS; i++) {
+        int *resultado_linha;
+        pthread_join(threads[i], (void**)&resultado_linha);
+
+        soma_total += *resultado_linha;  // adiciona a soma da linha ao total
+
+        free(resultado_linha);           // libera memória alocada pela thread
+    }
+ 
+    printf("A soma total da matriz é %d\n", soma_total);
+
+    return 0;
+}
+
