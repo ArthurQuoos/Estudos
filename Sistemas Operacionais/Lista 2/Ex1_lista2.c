@@ -28,7 +28,7 @@ sendo count a quantidade máxima de bytes a serem recebidos. A função retorna 
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-
+#include <sys/wait.h>
 
 int main() {
     int pipe1[2], pipe2[2];
@@ -36,15 +36,22 @@ int main() {
     char buffer[100];
 
     // Cria dois pipes
-    pipe(pipe1);
-    pipe(pipe2);
+    if (pipe(pipe1) == -1 || pipe(pipe2) == -1) {
+        perror("Erro ao criar pipe");
+        exit(1);
+    }
 
     // ============================
-    //       FILHO 1
+    //           FILHO 1
     // ============================
     pid1 = fork();
-    if (pid1 == 0) {
-        close(pipe1[0]);  // fecha leitura
+    if (pid1 < 0) {
+        perror("Erro no fork");
+        exit(1);
+    }
+
+    if (pid1 == 0) {  // Código do Filho 1
+        close(pipe1[0]);  // fecha extremidade de leitura do pipe1
         char msg[] = "Mensagem do filho 1";
         write(pipe1[1], msg, strlen(msg) + 1);
         close(pipe1[1]);
@@ -52,11 +59,16 @@ int main() {
     }
 
     // ============================
-    //       FILHO 2
+    //           FILHO 2
     // ============================
     pid2 = fork();
-    if (pid2 == 0) {
-        close(pipe2[0]);  // fecha leitura
+    if (pid2 < 0) {
+        perror("Erro no fork");
+        exit(1);
+    }
+
+    if (pid2 == 0) {  // Código do Filho 2
+        close(pipe2[0]); // fecha leitura
         char msg[] = "Mensagem do filho 2";
         write(pipe2[1], msg, strlen(msg) + 1);
         close(pipe2[1]);
@@ -64,11 +76,12 @@ int main() {
     }
 
     // ============================
-    //       PROCESSO PAI
+    //          PAI
     // ============================
-    close(pipe1[1]);  // pai fecha escrita
-    close(pipe2[1]);  // pai fecha escrita
+    close(pipe1[1]);  // fecha escrita
+    close(pipe2[1]);  // fecha escrita
 
+    // Lê o que chega dos filhos
     read(pipe1[0], buffer, sizeof(buffer));
     printf("Pai recebeu: %s\n", buffer);
 
@@ -77,6 +90,10 @@ int main() {
 
     close(pipe1[0]);
     close(pipe2[0]);
+
+    // Pai espera os filhos terminarem
+    wait(NULL);
+    wait(NULL);
 
     return 0;
 }
@@ -103,68 +120,71 @@ int main() {
 
 #define SHM_SIZE 1024
 
-int main(int argc, char *argv[])
-{
-      key_t key;
-      int shmid;
-      char *segmento;
-      pid_t filho;
+int main() {
 
-      //  Criar a chave: 
-      key = ftok("/tmp", 'R');  use um caminho existente 
-      if (key == -1)
-      {
-           perror("ftok");
-           exit(1);
-       }
+    key_t key;
+    int shmid;
+    char *segmento;
+    pid_t filho;
 
-      //Criar o segmento (ou obter se já existir) 
-      shmid = shmget(key, SHM_SIZE, IPC_CREAT | 0666);
-      if (shmid == -1) {
-          perror("shmget");
-          exit(1);
-      }
+    // Criar chave usando caminho existente (/tmp)
+    key = ftok("/tmp", 'R');
+    if (key == -1) {
+        perror("ftok");
+        exit(1);
+    }
 
-      //Vincula o segmento de memória à variável segmento
-      segmento = shmat(shmid, (void *)0, 0);
-      if (segmento == (char *)(-1)) {
-         perror("shmat");
-         exit(1);
-      }
+    // Criar (ou obter) segmento de memória compartilhada
+    shmid = shmget(key, SHM_SIZE, IPC_CREAT | 0666);
+    if (shmid == -1) {
+        perror("shmget");
+        exit(1);
+    }
 
-    //Código do filho
+    // Vincular o segmento à variável 'segmento'
+    segmento = shmat(shmid, NULL, 0);
+    if (segmento == (char *) -1) {
+        perror("shmat");
+        exit(1);
+    }
+
+    // Criar processo filho
     filho = fork();
-    if(filho == -1) {
+    if (filho == -1) {
         perror("fork");
-        // Desvincular e remover antes de sair em erro 
         shmdt(segmento);
         shmctl(shmid, IPC_RMID, NULL);
         exit(1);
     }
 
-    if(filho == 0){
+    // =========================
+    //       PROCESSO FILHO
+    // =========================
+    if (filho == 0) {
         printf("Filho escrevendo no segmento de memória compartilhada...\n");
         snprintf(segmento, SHM_SIZE, "Mensagem do processo filho.");
         _exit(0);
-    } else {
-        waitpid(filho, NULL, 0); // Espera o filho terminar
-        printf("Pai lendo do segmento de memória compartilhada...\n");
-        printf("Conteúdo: %s\n", segmento);
     }
 
-    // Desvincular do segmento 
+    // =========================
+    //        PROCESSO PAI
+    // =========================
+    wait(NULL);  // espera pelo filho terminar
+
+    printf("Pai lendo do segmento de memória compartilhada...\n");
+    printf("Conteúdo: %s\n", segmento);
+
+    // Desvincular
     if (shmdt(segmento) == -1) {
-          perror("shmdt");
-          // continuar para tentar remover o segmento 
+        perror("shmdt");
     }
 
-    // Remover o segmento do sistema 
+    // Remover o segmento do sistema
     if (shmctl(shmid, IPC_RMID, NULL) == -1) {
         perror("shmctl(IPC_RMID)");
     }
 
     return 0;
-
-
 }
+
  */
