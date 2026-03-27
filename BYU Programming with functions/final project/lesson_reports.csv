@@ -1,0 +1,11 @@
+Date,Teacher,Students,Duration,Content,Behavior,Observations,Reimbursement,Receipt
+2026-02-17 17:50,teacher1,,123,qwedq,dasd,zxczc,No,
+2026-02-17 17:50,teacher1,,45,adad,zczc,adad,Yes,receipts\image.jpeg
+2026-02-17 17:52,teacher1,,12,12,ada,dad,No,
+2026-02-17 17:53,teacher1,,12,12,ada,dad,No,
+2026-02-17 17:57,teacher1,"Maria, John",123,11,222,33344,No,
+2026-02-17 17:57,teacher1,Maria,123,11,222,33344,No,
+2026-02-17 18:01,teacher1,Lucas,123,4455,1231,12313,No,
+2026-02-17 18:12,teacher1,Ana,123,4,ad,ada,Yes,receipts\image.jpeg
+2026-02-17 18:52,teacher1,Ana,60,Math,Good,None,No,
+2026-02-17 18:52,teacher2,Lucas,45,English,Excellent,None,Yes,receipts/test.jpg
