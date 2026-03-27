@@ -1,0 +1,25 @@
+Estudar (usar o man) e executar o código usando a função (em conformidade com a API POSIX (ou equivalente no windows)) write(). Crie uma biblioteca para implementar alguns métodos de entrada e saída de dados, seguindo as seguintes especificações:
+
+
+1) myprintf(x,y, char* msg);
+ 
+ -Exibe msg na posição x e y do console
+
+
+   Exemplo:
+	myprintf(1,5, "Olá");
+
+  Console:
+  012345678910 (posição y da tela)
+  1    Olá			
+  2     
+  3
+  4
+  5
+  (posição x da tela)
+
+
+2) Pesquise na documentação do POSIX (ou api equivalente no windows), e crie uma função para sua biblioteca para disparar uma mensagem a cada x segundos de acordo com a assinatura a seguir:
+
+
+ printsinc(char* msg, int segundos);

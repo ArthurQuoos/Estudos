@@ -1,0 +1,4 @@
+gcc -c mylib.c
+gcc -c ex.c
+gcc -o executavel ex.o mylib.o
+
